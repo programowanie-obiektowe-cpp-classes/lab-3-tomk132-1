@@ -1,4 +1,4 @@
-
+﻿
 
 #include <iostream>
 
@@ -13,6 +13,9 @@ int main()
     std::cout << "Pole kolo1 to: " << kolo1.get() << std::endl;
 
     std::cout << "Pole kwadrat1 to: " << kwadrat1.get() << std::endl;
+
+    kolo1.id(); 
+    kwadrat1.id(); 
 
     return 0;
 };
