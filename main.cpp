@@ -14,8 +14,21 @@ int main()
 
     std::cout << "Pole kwadrat1 to: " << kwadrat1.get() << std::endl;
 
-    kolo1.id(); 
-    kwadrat1.id(); 
+    kolo1.id();
+    kwadrat1.id();
+
+    // rzutowanie statyczne
+    Kwadrat kwadrat2{6};
+    id(kwadrat2);
+
+    Kwadrat kwadrat3{8};
+    kwadrat3.id();
+
+    Figura figura3 = static_cast< Figura >(kwadrat3); 
+    figura3.id(); 
+
+    id(figura3); 
+
 
     return 0;
 };
