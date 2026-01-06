@@ -48,7 +48,21 @@ int main()
     }
 
     kwad6->id();
-    kolo7->id();
+
+    if (kolo7 == nullptr) {
+        std::cout << "Kolo7 to nullptr" << std::endl;
+    }
+    else {
+        kolo7->id();
+        ;
+    }
+    
+    //destruktor zad13
+
+    Figura* f = new Kwadrat{20}; 
+    delete f; 
+
+    
 
     return 0;
 };
