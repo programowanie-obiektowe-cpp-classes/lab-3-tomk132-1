@@ -24,11 +24,31 @@ int main()
     Kwadrat kwadrat3{8};
     kwadrat3.id();
 
-    Figura figura3 = static_cast< Figura >(kwadrat3); 
-    figura3.id(); 
+    Figura figura3 = static_cast< Figura >(kwadrat3);
+    figura3.id();
 
-    id(figura3); 
+    id(figura3);
 
+    // zadanie 12
+
+    Figura* kwadrat4 = new Kwadrat{8};
+    Figura* kwadrat5 = new Kwadrat{10};
+
+    Kwadrat* kwad6 = dynamic_cast< Kwadrat* >(kwadrat4);
+
+    Kolo* kolo7 = dynamic_cast< Kolo* >(kwadrat5);
+
+    id(*kwad6);
+
+    if (kolo7 == nullptr) {
+        std::cout << "Kolo7 to nullptr" << std::endl; 
+    }
+    else {
+        id(*kolo7);
+    }
+
+    kwad6->id();
+    kolo7->id();
 
     return 0;
 };
