@@ -1,9 +1,16 @@
 ﻿#pragma once
 
 #include <iostream>
+#include <iterator>
 #include <numbers>
 
-class Figura
+class BytGeometryczny
+{
+public:
+    virtual void id() const = 0;
+};
+
+class Figura : public BytGeometryczny
 {
 
 public:
@@ -59,6 +66,45 @@ public:
         std::cout << this->get() << std::endl;
     };
     void id() const override { std::cout << "Mój typ to Kwadrat a pole to:" << get() << std::endl; }
+};
+
+class WektorFigur
+{
+
+public:
+    ~WektorFigur()
+    {
+        for (int i = 0; i < licznik; i++) {
+            delete tablica_figur[i];
+        };
+    }
+    Figura* operator[](int i)
+    {
+        if (i >= 0 && i < static_cast< int >(std::size(tablica_figur))) {
+            return tablica_figur[i];
+        }
+        else
+            return nullptr;
+    }
+
+    void push(Figura* nowy_wskaznik)
+    {
+        tablica_figur[licznik] = nowy_wskaznik;
+        std::cout << "Push uruchomiony: " << licznik << std::endl; 
+        licznik++;
+        
+    }
+
+    void pop()
+    {
+        licznik--;
+        delete tablica_figur[licznik];
+        std::cout << "Pop uruchomiony: " << licznik << std::endl;
+        
+    };
+
+    Figura* tablica_figur[1000]{};
+    int     licznik{0};
 };
 
 void id(const Figura& figura)

@@ -41,7 +41,7 @@ int main()
     id(*kwad6);
 
     if (kolo7 == nullptr) {
-        std::cout << "Kolo7 to nullptr" << std::endl; 
+        std::cout << "Kolo7 to nullptr" << std::endl;
     }
     else {
         id(*kolo7);
@@ -56,13 +56,32 @@ int main()
         kolo7->id();
         ;
     }
-    
-    //destruktor zad13
 
-    Figura* f = new Kwadrat{20}; 
-    delete f; 
+    // destruktor zad13
 
-    
+    Figura* f = new Kwadrat{20};
+    delete f;
+
+    delete kwadrat4;
+    delete kwadrat5;
+
+
+    // Zadania 15-19 Heterogeniczny kontener
+    WektorFigur wf;
+
+    wf.push(new Kolo{3}); 
+    wf.push(new Kwadrat{5});
+    wf.push(new Figura{6});
+
+    wf.pop(); 
+    wf.pop(); 
+    wf.pop(); 
+
+
+
 
     return 0;
+
+
+
 };
