@@ -29,6 +29,7 @@ public:
     };
     double       get() const { return pole; }
     virtual void id() const { std::cout << "Mój typ to Figura a pole to:" << pole << std::endl; }
+    virtual void akceptuj(WizytatorFigurBaza& v) = 0;
 
 private:
     // protected:
@@ -50,6 +51,7 @@ public:
         std::cout << this->get() << std::endl;
     };
     void id() const override { std::cout << "Mój typ to Koło a pole to:" << get() << std::endl; }
+    void akceptuj(WizytatorFigurBaza& v) override { v.wizytuj(*this); };
 };
 
 class Kwadrat : public Figura
@@ -66,6 +68,7 @@ public:
         std::cout << this->get() << std::endl;
     };
     void id() const override { std::cout << "Mój typ to Kwadrat a pole to:" << get() << std::endl; }
+    void akceptuj(WizytatorFigurBaza& v) override { v.wizytuj(*this); };
 };
 
 class WektorFigur
@@ -90,9 +93,8 @@ public:
     void push(Figura* nowy_wskaznik)
     {
         tablica_figur[licznik] = nowy_wskaznik;
-        std::cout << "Push uruchomiony: " << licznik << std::endl; 
+        std::cout << "Push uruchomiony: " << licznik << std::endl;
         licznik++;
-        
     }
 
     void pop()
@@ -100,11 +102,55 @@ public:
         licznik--;
         delete tablica_figur[licznik];
         std::cout << "Pop uruchomiony: " << licznik << std::endl;
-        
     };
+
+    void idWszystkie()
+    {
+
+        for (int i = 0; i < licznik; i++) {
+
+            tablica_figur[i]->id();
+        }
+    };
+
+    void wizytujWszystkie(WizytatorFigurBaza& v)
+    {
+
+        for (int i = 0; i < licznik; i++) {
+
+            tablica_figur[i]->akceptuj(v);
+        };
+    }
 
     Figura* tablica_figur[1000]{};
     int     licznik{0};
+};
+
+class WizytatorFigurBaza
+{
+
+public:
+    virtual void wizytuj(Kwadrat& kwad_in) = 0; 
+    
+
+    virtual void wizytuj(Kolo& kolo_in) = 0;
+   
+};
+
+
+class WizytatorDrukujacy : public WizytatorFigurBaza
+
+{
+
+    void wizytuj(Kwadrat& kwad_in) override {
+
+
+    }
+
+    void wizytuj(Kolo& kolo_in) override {
+
+
+}
 };
 
 void id(const Figura& figura)
