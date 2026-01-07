@@ -122,7 +122,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="out\build\x64-debug\cmakefiles\4.1.1-msvc1\compileridcxx\CMakeCXXCompilerId.cpp" />
     <ClCompile Include="out\build\x64-debug\cmakefiles\4.1.1-msvc1\compileridc\CMakeCCompilerId.c" />
-    <ClCompile Include="out\build\x64-debug\cmakefiles\showincludes\main.c" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -131,11 +130,11 @@
     <ClInclude Include="include\ObjCounter.hpp" />
     <ClInclude Include="include\Statki.hpp" />
     <ClInclude Include="include\Stocznia.hpp" />
-    <ClInclude Include="out\build\x64-debug\cmakefiles\showincludes\foo.h" />
     <ClInclude Include="transportujFlota.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="out\build\x64-debug\cmakefiles\4.1.1-msvc1\CMakeDetermineCompilerABI_C.bin" />
     <None Include="out\build\x64-debug\cmakefiles\4.1.1-msvc1\CMakeDetermineCompilerABI_CXX.bin" />
   </ItemGroup>

@@ -4,6 +4,27 @@
 #include <iterator>
 #include <numbers>
 
+class Kolo;
+class Kwadrat;
+
+class WizytatorFigurBaza
+{
+
+public:
+    virtual void wizytuj(Kwadrat & kwad_in) = 0;
+
+    virtual void wizytuj(Kolo & kolo_in) = 0;
+};
+
+class WizytatorDrukujacy : public WizytatorFigurBaza
+
+{
+
+    void wizytuj(Kwadrat& kwad_in) override { std ::cout << "Wizytuj -> Kwadrat" << std::endl; }
+
+    void wizytuj(Kolo& kolo_in) override { std::cout << "Wizytuj -> Koło" << std::endl; }
+};
+
 class BytGeometryczny
 {
 public:
@@ -126,34 +147,8 @@ public:
     int     licznik{0};
 };
 
-class WizytatorFigurBaza
-{
 
-public:
-    virtual void wizytuj(Kwadrat& kwad_in) = 0; 
-    
-
-    virtual void wizytuj(Kolo& kolo_in) = 0;
-   
-};
-
-
-class WizytatorDrukujacy : public WizytatorFigurBaza
-
-{
-
-    void wizytuj(Kwadrat& kwad_in) override {
-
-
-    }
-
-    void wizytuj(Kolo& kolo_in) override {
-
-
-}
-};
-
-void id(const Figura& figura)
+inline void id(const Figura& figura)
 {
     figura.id();
 }
